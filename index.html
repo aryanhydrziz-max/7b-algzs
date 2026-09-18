@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Kelas 7A</title>
+  
+  <!-- Tailwind CSS & Google Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #0b0c10;
+      color: #e0e6ed;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(124, 58, 237, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(139, 92, 246, 0.15) 0px, transparent 50%),
+        url('bg.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .glass {
+      background: rgba(18, 18, 28, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all 0.3s ease;
+    }
+
+    .glass-card:hover {
+      background: rgba(139, 92, 246, 0.1);
+      border-color: rgba(139, 92, 246, 0.3);
+      transform: translateY(-4px);
+    }
+
+    .text-gradient {
+      background: linear-gradient(135deg, #a78bfa 0%, #c084fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-purple-500 selection:text-white">
+
+  <!-- Navbar -->
+  <nav class="sticky top-0 z-50 glass border-b border-white/10 px-6 py-4">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <div class="p-2 bg-purple-600/20 border border-purple-500/30 rounded-xl">
+          <i data-lucide="sparkles" class="w-6 h-6 text-purple-400"></i>
+        </div>
+        <span class="text-xl font-bold tracking-wide text-white">CLASS <span class="text-gradient">7A</span></span>
+      </div>
+      <div class="hidden md:flex gap-8 text-sm font-semibold">
+        <a href="#home" class="hover:text-purple-400 transition-colors">Beranda</a>
+        <a href="#pengumuman" class="hover:text-purple-400 transition-colors">Pengumuman</a>
+        <a href="#jadwal" class="hover:text-purple-400 transition-colors">Jadwal</a>
+        <a href="#siswa" class="hover:text-purple-400 transition-colors">Siswa</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="max-w-6xl mx-auto px-6 pt-20 pb-16 text-center">
+    <span class="px-4 py-1.5 rounded-full text-xs font-semibold bg-purple-500/10 border border-purple-500/20 text-purple-300 inline-block mb-4">
+      Official Class Website
+    </span>
+    <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-6">
+      Selamat Datang di <br><span class="text-gradient">Kelas 7A</span>
+    </h1>
+    <p class="text-gray-400 max-w-2xl mx-auto text-base md:text-lg">
+      Wadah informasi, jadwal pelajaran, dan galeri aktivitas belajar anggota kelas 7A.
+    </p>
+  </section>
+
+  <!-- Pengumuman Section -->
+  <section id="pengumuman" class="max-w-6xl mx-auto px-6 py-12 w-full">
+    <div class="flex items-center gap-3 mb-6">
+      <i data-lucide="bell" class="w-6 h-6 text-purple-400"></i>
+      <h2 class="text-2xl font-bold text-white">Pengumuman Kelas</h2>
+    </div>
+    <div class="glass p-6 rounded-2xl border border-white/10 flex flex-col md:flex-row gap-6 items-start">
+      <div class="p-4 bg-purple-500/10 border border-purple-500/20 rounded-xl text-purple-400 shrink-0">
+        <i data-lucide="megaphone" class="w-8 h-8"></i>
+      </div>
+      <div>
+        <span class="text-xs text-purple-400 font-semibold tracking-wider uppercase">Info Terkini</span>
+        <h3 class="text-xl font-bold text-white mt-1">Jadwal Piket & Kerja Kelompok</h3>
+        <p class="text-gray-400 mt-2 text-sm leading-relaxed">
+          Harap seluruh anggota kelas mengecek pembagian piket kebersihan harian. Untuk tugas kelompok minggu ini, koordinasi dapat dilakukan melalui ketua kelompok masing-masing.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Jadwal Section -->
+  <section id="jadwal" class="max-w-6xl mx-auto px-6 py-12 w-full">
+    <div class="flex items-center gap-3 mb-6">
+      <i data-lucide="calendar" class="w-6 h-6 text-purple-400"></i>
+      <h2 class="text-2xl font-bold text-white">Jadwal Pelajaran</h2>
+    </div>
+    
+    <!-- Tab Navigation -->
+    <div class="flex gap-2 overflow-x-auto pb-4 mb-6 border-b border-white/10" id="dayTabs">
+      <button onclick="switchTab('senin')" class="tab-btn active px-5 py-2.5 rounded-xl font-semibold text-sm transition-all bg-purple-600 text-white">Senin</button>
+      <button onclick="switchTab('selasa')" class="tab-btn px-5 py-2.5 rounded-xl font-semibold text-sm transition-all bg-white/5 text-gray-400 hover:bg-white/10">Selasa</button>
+      <button onclick="switchTab('rabu')" class="tab-btn px-5 py-2.5 rounded-xl font-semibold text-sm transition-all bg-white/5 text-gray-400 hover:bg-white/10">Rabu</button>
+      <button onclick="switchTab('kamis')" class="tab-btn px-5 py-2.5 rounded-xl font-semibold text-sm transition-all bg-white/5 text-gray-400 hover:bg-white/10">Kamis</button>
+      <button onclick="switchTab('jumat')" class="tab-btn px-5 py-2.5 rounded-xl font-semibold text-sm transition-all bg-white/5 text-gray-400 hover:bg-white/10">Jumat</button>
+    </div>
+
+    <!-- Tab Contents -->
+    <div id="tabContent" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <!-- Generated via JS -->
+    </div>
+  </section>
+
+  <!-- Daftar Siswa Section -->
+  <section id="siswa" class="max-w-6xl mx-auto px-6 py-12 w-full">
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+      <div class="flex items-center gap-3">
+        <i data-lucide="users" class="w-6 h-6 text-purple-400"></i>
+        <h2 class="text-2xl font-bold text-white">Anggota Kelas</h2>
+      </div>
+      <div class="relative w-full md:w-64">
+        <i data-lucide="search" class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+        <input type="text" id="searchInput" oninput="filterSiswa()" placeholder="Cari nama siswa..." class="w-full bg-white/5 border border-white/10 rounded-xl pl-9 pr-4 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-purple-500">
+      </div>
+    </div>
+
+    <div id="siswaGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+      <!-- Generated via JS -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/10 py-8 text-center text-xs text-gray-500 mt-20">
+    <p>&copy; 2026 Kelas 7A. All rights reserved.</p>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    // Data Jadwal Pelajaran
+    const jadwalData = {
+      senin: [
+        { jam: "07:00 - 08:20", mapel: "Upacara & IPA", guru: "Guru IPA" },
+        { jam: "08:20 - 09:40", mapel: "Bahasa Indonesia", guru: "Guru B. Indo" },
+        { jam: "10:00 - 11:20", mapel: "Matematika", guru: "Guru MTK" }
+      ],
+      selasa: [
+        { jam: "07:00 - 08:20", mapel: "Bahasa Inggris", guru: "Guru B. Ing" },
+        { jam: "08:20 - 09:40", mapel: "PJOK", guru: "Guru PJOK" },
+        { jam: "10:00 - 11:20", mapel: "Informatika", guru: "Guru Komputer" }
+      ],
+      rabu: [
+        { jam: "07:00 - 08:20", mapel: "IPS", guru: "Guru IPS" },
+        { jam: "08:20 - 09:40", mapel: "Pendidikan Pancasila", guru: "Guru PPKn" },
+        { jam: "10:00 - 11:20", mapel: "Seni Budaya", guru: "Guru Seni" }
+      ],
+      kamis: [
+        { jam: "07:00 - 08:20", mapel: "Matematika", guru: "Guru MTK" },
+        { jam: "08:20 - 09:40", mapel: "IPA", guru: "Guru IPA" },
+        { jam: "10:00 - 11:20", mapel: "Bahasa Indonesia", guru: "Guru B. Indo" }
+      ],
+      jumat: [
+        { jam: "07:00 - 08:20", mapel: "Agama", guru: "Guru Agama" },
+        { jam: "08:20 - 09:40", mapel: "Prakarya", guru: "Guru Prakarya" }
+      ]
+    };
+
+    // Data Siswa (Bisa disesuaikan nama-namanya)
+    const siswaData = [
+      { id: 1, nama: "Ahmad Rizky", role: "Ketua Kelas" },
+      { id: 2, nama: "Aulia Putri", role: "Wakil Ketua" },
+      { id: 3, nama: "Bagas Pratama", role: "Sekretaris" },
+      { id: 4, nama: "Dinda Kirana", role: "Bendahara" },
+      { id: 5, nama: "Fajar Nugraha", role: "Anggota" },
+      { id: 6, nama: "Gita Gutawa", role: "Anggota" },
+      { id: 7, nama: "Hafiz Maulana", role: "Anggota" },
+      { id: 8, nama: "Indah Permata", role: "Anggota" }
+    ];
+
+    // Logika Tab Jadwal
+    function switchTab(hari) {
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-purple-600', 'text-white');
+        btn.classList.add('bg-white/5', 'text-gray-400');
+      });
+      event.target.classList.remove('bg-white/5', 'text-gray-400');
+      event.target.classList.add('bg-purple-600', 'text-white');
+
+      const container = document.getElementById('tabContent');
+      container.innerHTML = jadwalData[hari].map(item => `
+        <div class="glass-card p-5 rounded-2xl">
+          <span class="text-xs font-semibold text-purple-400">${item.jam}</span>
+          <h4 class="text-lg font-bold text-white mt-1">${item.mapel}</h4>
+          <p class="text-xs text-gray-400 mt-2">${item.guru}</p>
+        </div>
+      `).join('');
+    }
+
+    // Render Siswa
+    function renderSiswa(list) {
+      const grid = document.getElementById('siswaGrid');
+      grid.innerHTML = list.map(siswa => `
+        <div class="glass-card p-4 rounded-2xl flex items-center gap-4">
+          <div class="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center font-bold text-purple-300">
+            ${siswa.nama.charAt(0)}
+          </div>
+          <div>
+            <h4 class="text-sm font-bold text-white">${siswa.nama}</h4>
+            <span class="text-xs text-gray-400">${siswa.role}</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Filter Siswa Search
+    function filterSiswa() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const filtered = siswaData.filter(s => s.nama.toLowerCase().includes(query));
+      renderSiswa(filtered);
+    }
+
+    // Init awal
+    switchTab('senin');
+    renderSiswa(siswaData);
+  </script>
+</body>
+</html>
